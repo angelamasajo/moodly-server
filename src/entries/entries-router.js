@@ -63,7 +63,7 @@ entriesRouter
       .catch(next);
   })
   .get((req, res, next) => {
-    res.json(serializePlant(res.plant));
+    res.json(serializePlant(res.entry));
   })
   .delete((req, res, next) => {
     EntriesService.deleteEntry(req.app.get("db"), req.params.entry_id)
