@@ -2,11 +2,12 @@ const path = require("path");
 const express = require("express");
 const logger = require("../logger");
 const EntriesService = require("./entries-service");
+const { toUnicode } = require("punycode");
 
 const entriesRouter = express.Router();
 const jsonParser = express.json();
 
-const serializePlant = (entry) => ({
+const serializeEntry = (entry) => ({
   id: entry.id,
   title: entry.title,
   mood: entry.mood,
@@ -22,26 +23,28 @@ entriesRouter
     const knexInstance = req.app.get("db");
     EntriesService.getAllPlants(knexInstance)
       .then((users) => {
-        res.json(users.map(serializePlant));
+        res.json(users.map(serializeEntry));
       })
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { name, plant_type, toxicity, care_details } = req.body;
-    const newPlant = { name, plant_type, toxicity, care_details };
+    const { title, mood, description, author = 1 } = req.body;
+    const newEntry = { title, mood, description };
 
-    for (const [key, value] of Object.entries(newPlant))
+    for (const [key, value] of Object.entries(newEntry))
       if (value == null)
         return res.status(400).json({
           error: { message: `Missing '${key}' in request body` },
         });
-
-    EntriesService.insertPlant(req.app.get("db"), newPlant)
-      .then((plant) => {
+    
+    newEntry.author = author
+    
+    EntriesService.insertEntry(req.app.get("db"), newEntry)
+      .then((entry) => {
         res
           .status(201)
-          .location(path.posix.join(req.originalUrl + `/${plant.id}`))
-          .json(serializePlant(plant));
+          .location(path.posix.join(req.originalUrl + `/${entry.id}`))
+          .json(serializeEntry(entry));
       })
       .catch(next);
   });
@@ -63,7 +66,7 @@ entriesRouter
       .catch(next);
   })
   .get((req, res, next) => {
-    res.json(serializePlant(res.entry));
+    res.json(serializeEntry(res.entry));
   })
   .delete((req, res, next) => {
     EntriesService.deleteEntry(req.app.get("db"), req.params.entry_id)

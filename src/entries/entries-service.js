@@ -2,10 +2,10 @@ const EntriesService = {
   getAllPlants(knex) {
     return knex.select("*").from("entries");
   },
-  insertPlant(knex, newPlant) {
+  insertEntry(knex, newEntry) {
     return knex
-      .insert(newPlant)
-      .into("plants")
+      .insert(newEntry)
+      .into("entries")
       .returning("*")
       .then((rows) => {
         return rows[0];
