@@ -15,7 +15,7 @@ app.use(helmet());
 
 const allowedOrigins = [
   'http://localhost:3000', 
-  // 'https://plantventory-app.vercel.app'
+  'https://moodly.vercel.app'
 ];
 
 app.use(cors({
