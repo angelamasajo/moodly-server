@@ -18,16 +18,16 @@ function makeUsersArray() {
   ];
 }
 
-function makeUserPlantsArray() {
-  return [
-    {
-      plant_id: 1,
-      user_id: 1,
-    },
-  ];
-}
+// function makeUserPlantsArray() {
+//   return [
+//     {
+//       plant_id: 1,
+//       user_id: 1,
+//     },
+//   ];
+// }
 
 module.exports = {
   makeUsersArray,
-  makeUserPlantsArray,
+  // makeUserPlantsArray,
 };
