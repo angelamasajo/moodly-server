@@ -1,6 +1,6 @@
 # Moodly App
 
-Link to app: app-url-here
+Link to app: https://moodly.vercel.app
 
 ## About the App
 
