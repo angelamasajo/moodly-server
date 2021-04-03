@@ -110,31 +110,6 @@ describe("Entries Endpoints", function () {
       });
     });
 
-  //   context(`Given an XSS attack plant`, () => {
-  //     const testUsers = makeUsersArray();
-  //     const { maliciousEntry, expectedEntry } = makeMaliciousEntry();
-
-  //     beforeEach("insert malicious entry", () => {
-  //       return db
-  //         .into("users")
-  //         .insert(testUsers)
-  //         .then(() => {
-  //           return db.into("entries").insert([maliciousEntry]);
-  //         });
-  //     });
-
-  //     it("removes XSS attack content", () => {
-  //       return supertest(app)
-  //         .get(`/api/plants/${maliciousEntry.id}`)
-  //         .expect(200)
-  //         .expect((res) => {
-  //           expect(res.body[0].title).to.eql(expectedEntry.title);
-  //           expect(res.body[0].description).to.eql(expectedEntry.description);
-  //           expect(res.body[0].mood).to.eql(expectedEntry.mood);
-  //         });
-  //     });
-  //   });
-  // });
 
   describe(`POST /api/entries`, () => {
     const testUsers = makeUsersArray();

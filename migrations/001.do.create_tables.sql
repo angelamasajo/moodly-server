@@ -14,14 +14,6 @@ CREATE TABLE entries (
 );
 
 
-
-
--- CREATE TABLE user_plants (
---   plant_id INTEGER REFERENCES plants(id),
---   user_id INTEGER REFERENCES users(id)
--- );
-
-
 --seed
 INSERT INTO users (user_name, user_password)
 VALUES
@@ -33,11 +25,3 @@ VALUES
   ('Rainy day', 'sad', 'I am excited because here are the reasons. Here is what happened and why.', 1),
   ('App not working', 'frustrated', 'I am excited because here are the reasons. Here is what happened and why.', 1),
   ('social justice', 'anxious', 'I am excited because here are the reasons. Here is what happened and why.', 1);
-
-
-
--- INSERT INTO user_plants (plant_id, user_id)
--- VALUES
---   (1, 1),
---   (2, 1),
---   (5, 1);
