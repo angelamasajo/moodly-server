@@ -11,17 +11,17 @@ Moodly is a mood tracker, where the user can track their moods regularly and mak
 ## Pages
 
 ### Landing Page 
-![landing_page](/app-screenshots/plantventory-home.png)
+![landing_page](/app-screenshots/moodly-landingpage.png)
 This is the introduction located on the main page, explaining what Moodly does and what it hopes to accomplish. 
 
 
-### All Plants Page
-![allplants_page](/app-screenshots/plantventory-allplants.png)
+### All Entries Page
+![allentries_page](/app-screenshots/moodly-entries.png)
 This page manages the full list of Moodly entries that the user has added. The entries can be sorted by mood to help users navigate similar emotions.
 
 
-### Add Plant Page
-![addplant_page](/app-screenshots/plantventory-addplant.png)
+### Add Entry Page
+![addentry_page](/app-screenshots/moodly-addentry.png)
 Users can add new Moodly entries on this page, including title, mood, and description/journal entry.
 
 
@@ -42,5 +42,6 @@ Users can add new Moodly entries on this page, including title, mood, and descri
 - POST: allow users post entries
 
 #### /api/entries/:entry_id
-- GET: access separate plants
+- GET: access separate entries
 - DELETE: users can delete entries
+
